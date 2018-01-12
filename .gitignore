@@ -1,0 +1,6 @@
+.idea/
+coverage/
+node_modules/
+!*.gitkeep
+.DS_Store
+npm-debug.log

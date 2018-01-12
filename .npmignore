@@ -1,0 +1,9 @@
+.idea/
+coverage/
+test/
+.babelrc
+.eslintrc.yml
+.eslintignore
+*.test.js
+jest.config.json
+package-lock.json
