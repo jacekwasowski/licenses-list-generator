@@ -25,14 +25,14 @@ text | string| license text (see below)
 type | string | license type (from package.json)
 version | string | module version (from package.json)
 
-*Undefined* is all cases if not found.
+*Null* in all cases if not found.
 
-Function returns license information to module/project from which is called as well.
+Function returns license information to module/project from which it is called as well.
 
 ## How licenses are found and read
-It is recursive walk through __*dependencies*__ from package.json (to find dependencies and its all sub-dependencies). 
+It is a recursive walk through __*dependencies*__ from package.json (to find dependencies and all its sub-dependencies). 
 License text comes from *LICENSE* or *LICENCE* or *LICENSE.md* or *LICENSE.txt* or *LICENSE.markdown* file.
-Other information, like license type, name or version, come from package.json file.
+Other information, like license type, name or version, comes from package.json file.
 
 
 Returned array contains information related project dependencies ONLY. 

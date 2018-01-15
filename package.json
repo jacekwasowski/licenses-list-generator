@@ -1,6 +1,6 @@
 {
   "name": "licenses-list-generator",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Fetch licences types and texts from all dependencies (and their dependencies) from your project.",
   "main": "src/index.js",
   "scripts": {
