@@ -28,7 +28,7 @@ function getPackageJson(path = projectPath) {
 }
 
 function getLicenseText(path) {
-  const possibleNames = ['LICENSE', 'LICENSE.md', 'LICENSE.txt'];
+  const possibleNames = ['LICENSE', 'LICENSE.md', 'LICENSE.txt', 'LICENCE', 'LICENSE.markdown'];
   const name = possibleNames.find(fileName => isFile(`${path}/${fileName}`));
 
   if (!name) {
@@ -65,8 +65,5 @@ function getLicenses(path = projectPath) {
 
 module.exports = () => getLicenses(projectPath);
 
-
 // TODO: UT
-// TODO: README file
-
 // TODO: (feature) fetch license from README
