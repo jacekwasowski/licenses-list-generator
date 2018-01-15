@@ -6,7 +6,7 @@ Open Source & legal team and a massive number of manual work...
 
 ## Installation
 ```sh
-npm install node-image-resizer --save-dev
+npm install licenses-list-generator --save-dev
 ```
 
 ## Usage
