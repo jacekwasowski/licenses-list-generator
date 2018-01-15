@@ -4,8 +4,9 @@
   "description": "Genarate list of LICENSE files from your all dependencies. To make legal team happy.",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint src/.",
-    "test": "npm run lint"
+    "lint": "eslint src/*.js",
+    "test": "npm run lint",
+    "unit": "jest --config jest.config.json"
   },
   "devDependencies": {
     "babel-jest": "22.0.6",
