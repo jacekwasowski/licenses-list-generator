@@ -1,7 +1,7 @@
 {
   "name": "licenses-list-generator",
-  "version": "0.0.1",
-  "description": "Fetch licences types and texts from all dependencies (and their dependencies) from your project. ",
+  "version": "0.5.0",
+  "description": "Fetch licences types and texts from all dependencies (and their dependencies) from your project.",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src/*.js",
@@ -18,7 +18,7 @@
     "eslint-config-airbnb-base": "12.1.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-unicorn": "3.0.1",
-    "jest": "21.2.1"
+    "jest": "22.0.6"
   },
   "engines": {
     "node": ">=7.6.0",
