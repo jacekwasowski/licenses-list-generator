@@ -1,6 +1,6 @@
 {
   "name": "licenses-list-generator",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Fetch licences types and texts from all dependencies (and their dependencies) from your project.",
   "main": "src/index.js",
   "scripts": {
@@ -23,6 +23,10 @@
   "engines": {
     "node": ">=7.6.0",
     "npm": ">=4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacekwasowski/licenses-list-generator.git"
   },
   "keywords": [
     "license",
