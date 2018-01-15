@@ -1,7 +1,7 @@
 # licenses-list-generator
 > Fetch licences types and texts from all dependencies (and their dependencies) from your project. 
 
-# Inspiration
+## Inspiration
 Open Source & legal team and a massive number of manual work... 
 
 ## Installation
@@ -29,7 +29,7 @@ version | string | module version (from package.json)
 
 Function returns license information to module/project from which is called as well.
 
-# How licenses are found and read
+## How licenses are found and read
 It is recursive walk through __*dependencies*__ from package.json (to find dependencies and its all sub-dependencies). 
 License text comes from *LICENSE* or *LICENCE* or *LICENSE.md* or *LICENSE.txt* or *LICENSE.markdown* file.
 Other information, like license type, name or version, come from package.json file.
@@ -38,5 +38,5 @@ Other information, like license type, name or version, come from package.json fi
 Returned array contains information related project dependencies ONLY. 
 __NOT *devDependencies*__.
 
-# License
+## License
 MIT
