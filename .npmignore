@@ -1,6 +1,5 @@
 .idea/
 coverage/
-test/
 .babelrc
 .eslintrc.yml
 .eslintignore
