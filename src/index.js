@@ -18,12 +18,6 @@ function getFile(path) {
 
 function getPackageJson(path = projectPath) {
   const packagePath = `${path}/package.json`;
-
-  if (!isFile(packagePath)) {
-    log('package.json does not exist for', path);
-    return null;
-  }
-
   return JSON.parse(getFile(packagePath));
 }
 
@@ -42,28 +36,23 @@ function getLicenseText(path) {
 function getLicenses(path = projectPath) {
   const packageJson = getPackageJson(path);
 
-  if (packageJson) {
-    if (packageJson.dependencies) {
-      Object.keys(packageJson.dependencies).forEach((name) => {
-        getLicenses(`${projectPath}/node_modules/${name}`);
-      });
-    } else if (!paths.includes(path)) {
-      paths.push(path);
+  if (packageJson.dependencies) {
+    Object.keys(packageJson.dependencies).forEach((name) => {
+      getLicenses(`${projectPath}/node_modules/${name}`);
+    });
+  } else if (!paths.includes(path)) {
+    paths.push(path);
 
-      licenses.push({
-        name: packageJson.name,
-        path,
-        text: getLicenseText(path),
-        type: packageJson.license,
-        version: packageJson.version,
-      });
-    }
+    licenses.push({
+      name: packageJson.name,
+      path,
+      text: getLicenseText(path),
+      type: packageJson.license || null,
+      version: packageJson.version,
+    });
   }
 
   return licenses;
 }
 
 module.exports = () => getLicenses(projectPath);
-
-// TODO: UT
-// TODO: (feature) fetch license from README
