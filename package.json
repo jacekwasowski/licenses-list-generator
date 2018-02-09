@@ -1,6 +1,6 @@
 {
   "name": "licenses-list-generator",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Fetch licences types and texts from all dependencies (and their dependencies) from your project.",
   "main": "src/index.js",
   "scripts": {
@@ -9,16 +9,16 @@
     "unit": "jest --config jest.config.json"
   },
   "devDependencies": {
-    "babel-jest": "22.0.6",
+    "babel-jest": "22.2.0",
     "babel-plugin-rewire": "1.1.0",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-env": "1.6.1",
     "babel-preset-stage-2": "6.24.1",
-    "eslint": "4.15.0",
+    "eslint": "4.17.0",
     "eslint-config-airbnb-base": "12.1.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-unicorn": "3.0.1",
-    "jest": "22.0.6"
+    "jest": "22.2.1"
   },
   "engines": {
     "node": ">=7.6.0",
