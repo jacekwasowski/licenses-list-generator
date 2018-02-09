@@ -1,5 +1,5 @@
 # licenses-list-generator
-> Fetch licences types and texts from all dependencies (and their dependencies) from your project. 
+> Fetch licences types and copies from all dependencies (and their dependencies) from your project. 
 
 ## Inspiration
 Open Source & legal team and a massive number of manual work... 
@@ -25,7 +25,7 @@ text | string| license text (see below)
 type | string | license type (from package.json)
 version | string | module version (from package.json)
 
-*Null* in all cases if not found.
+*null* in all cases if not found.
 
 Function returns license information to module/project from which it is called as well.
 
@@ -39,4 +39,4 @@ Returned array contains information related project dependencies ONLY.
 __NOT *devDependencies*__.
 
 ## License
-MIT
+[MIT](https://github.com/jacekwasowski/licenses-list-generator/blob/master/LICENSE)
