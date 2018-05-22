@@ -18,7 +18,20 @@ function getFile(path) {
 
 function getPackageJson(path = projectPath) {
   const packagePath = `${path}/package.json`;
-  return JSON.parse(getFile(packagePath));
+  let packageObj = {};
+  try {
+    packageObj = JSON.parse(getFile(packagePath));
+  } catch (err) {
+    log(err, path);
+    packageObj = {
+      name: path.split('/')[-1],
+      path,
+      text: null,
+      type: null,
+      version: null,
+    };
+  }
+  return packageObj;
 }
 
 function getLicenseText(path) {
