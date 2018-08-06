@@ -3,6 +3,15 @@ const fs = require('fs');
 const projectPath = process.cwd();
 const licenses = [];
 const paths = [];
+const LICENSE_FILES = [
+  'LICENSE',
+  'LICENSE.md',
+  'LICENSE.txt',
+  'LICENCE',
+  'LICENSE.markdown',
+  'LICENSE-MIT',
+  'LICENSE.rst',
+];
 
 function log(msg, path) {
   console.log(`licenses-list-generator: ${msg} ${path}`); // eslint-disable-line no-console
@@ -18,11 +27,24 @@ function getFile(path) {
 
 function getPackageJson(path = projectPath) {
   const packagePath = `${path}/package.json`;
-  return JSON.parse(getFile(packagePath));
+  let packageObj = {};
+  try {
+    packageObj = JSON.parse(getFile(packagePath));
+  } catch (err) {
+    log(err, path);
+    packageObj = {
+      name: path.split('/')[-1],
+      path,
+      text: null,
+      type: null,
+      version: null,
+    };
+  }
+  return packageObj;
 }
 
 function getLicenseText(path) {
-  const possibleNames = ['LICENSE', 'LICENSE.md', 'LICENSE.txt', 'LICENCE', 'LICENSE.markdown'];
+  const possibleNames = LICENSE_FILES;
   const name = possibleNames.find(fileName => isFile(`${path}/${fileName}`));
 
   if (!name) {
@@ -55,4 +77,44 @@ function getLicenses(path = projectPath) {
   return licenses;
 }
 
-module.exports = () => getLicenses(projectPath);
+function printLicenses(licensesArray) {
+  const stringifyType = (x) => {
+    if (x.type === null) {
+      x.type = 'NO LICENSE';// eslint-disable-line no-param-reassign
+      return x;
+    }
+
+    let y = x.type;
+    while (typeof y !== 'string') {
+      y = y.type;
+    }
+    x.type = y;// eslint-disable-line no-param-reassign
+    return x;
+  };
+
+  const rowify = (x) => {
+    const path = x.path.split('/');
+    const name = x.name || path[path.length - 1];
+    return `${name}, ${x.type}`;
+  };
+
+  return licensesArray.map(stringifyType).map(rowify).join('\n');
+}
+
+function saveLicenses(licensesInpt, path = './licenses.csv') {
+  let licenseString = licensesInpt;
+  if (typeof licenseString !== 'string') {
+    licenseString = printLicenses(licenses);
+  }
+  fs.writeFile(path, licenseString, 'utf8', (err) => {
+    if (err) throw err;
+    console.log(`Saved ${path}`); // eslint-disable-line no-console
+  });
+}
+
+module.exports = {
+  get: () => getLicenses(projectPath),
+  getLicenses,
+  printCsv: printLicenses,
+  saveCsv: saveLicenses,
+};
