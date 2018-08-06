@@ -40,12 +40,12 @@ function getPackageJson(path = projectPath) {
       version: null,
     };
   }
+
   return packageObj;
 }
 
 function getLicenseText(path) {
-  const possibleNames = LICENSE_FILES;
-  const name = possibleNames.find(fileName => isFile(`${path}/${fileName}`));
+  const name = LICENSE_FILES.find(fileName => isFile(`${path}/${fileName}`));
 
   if (!name) {
     log('license file does not exist for', path);
@@ -80,7 +80,7 @@ function getLicenses(path = projectPath) {
 function printLicenses(licensesArray) {
   const stringifyType = (x) => {
     if (x.type === null) {
-      x.type = 'NO LICENSE';// eslint-disable-line no-param-reassign
+      x.type = 'NO LICENSE'; // eslint-disable-line no-param-reassign
       return x;
     }
 
@@ -88,7 +88,7 @@ function printLicenses(licensesArray) {
     while (typeof y !== 'string') {
       y = y.type;
     }
-    x.type = y;// eslint-disable-line no-param-reassign
+    x.type = y; // eslint-disable-line no-param-reassign
     return x;
   };
 
