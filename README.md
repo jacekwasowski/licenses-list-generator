@@ -31,7 +31,14 @@ Function returns license information to module/project from which it is called a
 
 ## How licenses are found and read
 It is a recursive walk through __*dependencies*__ from package.json (to find dependencies and all its sub-dependencies). 
-License text comes from *LICENSE* or *LICENCE* or *LICENSE.md* or *LICENSE.txt* or *LICENSE.markdown* file.
+Module is searching for files:
+  *LICENSE*,
+  *LICENSE.md*,
+  *LICENSE.txt*,
+  *LICENCE*,
+  *LICENSE.markdown*,
+  *LICENSE-MIT*,
+  *LICENSE.rst*,
 Other information, like license type, name or version, comes from package.json file.
 
 
