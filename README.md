@@ -47,7 +47,7 @@ Module is searching for files:
 Other information, like license type, name or version, comes from package.json file.
 
 
-Returned array contains information related project dependencies ONLY. 
+Returned array contains information related project __dependencies ONLY__.<br> 
 __NOT *devDependencies*__.
 
 ## License
