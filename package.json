@@ -1,7 +1,7 @@
 {
   "name": "licenses-list-generator",
-  "version": "0.7.0-beta",
-  "description": "Fetch licences types and texts from all dependencies (and their dependencies) from your project.",
+  "version": "0.7.0",
+  "description": "Fetch licences types and texts from all dependencies (and their dependencies) from project.",
   "main": "src/index.js",
   "scripts": {
     "licenses": "node build/licenses-generator",
@@ -14,10 +14,6 @@
     "chalk": "^2.4.1"
   },
   "devDependencies": {
-    "babel-jest": "^23.6.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
