@@ -1,6 +1,8 @@
 .idea/
+build/
 coverage/
-.babelrc
+mocked_project/
+static/
 .eslintrc.yml
 .eslintignore
 *.test.js
