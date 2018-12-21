@@ -1,11 +1,11 @@
 # licenses-list-generator
-> Fetch licences types and copies from all dependencies (and their dependencies) from your project. 
+> Fetch licences types and copies from all dependencies (and their dependencies) from project. 
 
 ## Inspiration
 Open Source & legal team and a massive number of manual work... 
 
 ## Installation
-```sh
+```bash
 npm install licenses-list-generator --save-dev
 ```
 
@@ -13,6 +13,11 @@ npm install licenses-list-generator --save-dev
 ```javascript
 import licensesList from 'licenses-list-generator';
 const licenses = licensesList();
+```
+
+Live example (will create *./static/licenses.txt* file which contains licenses from all dependencies used in this project):
+```bash
+npm run licenses
 ```
 
 Function returns array of objects with properties:
@@ -38,7 +43,7 @@ Module is searching for files:
   *LICENCE*,
   *LICENSE.markdown*,
   *LICENSE-MIT*,
-  *LICENSE.rst*,
+  *LICENSE.rst*.
 Other information, like license type, name or version, comes from package.json file.
 
 
