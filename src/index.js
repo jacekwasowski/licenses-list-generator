@@ -1,6 +1,6 @@
 const fs = require('fs');
+const chalk = require('chalk');
 
-const projectPath = process.cwd();
 const licenses = [];
 const paths = [];
 const LICENSE_FILES = [
@@ -14,7 +14,11 @@ const LICENSE_FILES = [
 ];
 
 function log(msg, path) {
-  console.log(`licenses-list-generator: ${msg} ${path}`); // eslint-disable-line no-console
+  console.log(chalk.red(`licenses-list-generator: ${msg} ${path}`)); // eslint-disable-line no-console
+}
+
+function getProjectPath() {
+  return process.cwd();
 }
 
 function isFile(path) {
@@ -25,7 +29,7 @@ function getFile(path) {
   return fs.readFileSync(path).toString();
 }
 
-function getPackageJson(path = projectPath) {
+function getPackageJson(path) {
   const packagePath = `${path}/package.json`;
   let packageObj = {};
   try {
@@ -55,26 +59,36 @@ function getLicenseText(path) {
   return getFile(`${path}/${name}`);
 }
 
-function getLicenses(path = projectPath) {
-  const packageJson = getPackageJson(path);
+function getLicenses(path) {
+  const {
+    dependencies,
+    license,
+    name,
+    version,
+  } = getPackageJson(path);
 
-  if (packageJson.dependencies) {
-    Object.keys(packageJson.dependencies).forEach((name) => {
-      getLicenses(`${projectPath}/node_modules/${name}`);
+  if (dependencies && Object.keys(dependencies).length > 0) {
+    Object.keys(dependencies).forEach((dependency) => {
+      getLicenses(`${getProjectPath()}/node_modules/${dependency}`);
     });
-  } else if (!paths.includes(path)) {
+  }
+
+  if (!paths.includes(path)) {
     paths.push(path);
 
-    licenses.push({
-      name: packageJson.name,
-      path,
-      text: getLicenseText(path),
-      type: packageJson.license || null,
-      version: packageJson.version,
-    });
+    const text = getLicenseText(path);
+    if (text) {
+      licenses.push({
+        name,
+        path,
+        text,
+        type: license,
+        version,
+      });
+    }
   }
 
   return licenses;
 }
 
-module.exports = () => getLicenses(projectPath);
+module.exports = () => getLicenses(getProjectPath());

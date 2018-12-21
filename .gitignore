@@ -1,6 +1,7 @@
 .idea/
 coverage/
 node_modules/
+!mocked_project/node_modules
 static/licenses.txt
 !*.gitkeep
 .DS_Store

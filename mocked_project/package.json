@@ -1,0 +1,9 @@
+{
+  "name": "fake-project",
+  "version": "0.0.1-alpha",
+  "dependencies": {
+    "foo": "1.0.0",
+    "qux": "4.0.0",
+    "bar": "2.0.0"
+  }
+}

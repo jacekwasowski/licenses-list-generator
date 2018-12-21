@@ -1,5 +1,5 @@
 const fs = require('fs');
-const chalk = require('chalk'); // eslint-disable-line import/no-extraneous-dependencies
+const chalk = require('chalk');
 const licensesList = require('../src/index')();
 
 const licenses = licensesList

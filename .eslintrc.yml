@@ -12,7 +12,7 @@ rules:
   no-multiple-empty-lines: [2, { max: 2, maxEOF: 1, maxBOF: 0 }]
   no-param-reassign: 2
   no-path-concat: 2
-  no-underscore-dangle: [2, { allow: ['__Rewire__', '__ResetDependency__', '__GetDependency__'] }]
+  no-underscore-dangle: 2
   unicorn/catch-error-name: [2, { name: err }]
   unicorn/explicit-length-check: 2
   unicorn/filename-case: [2, { case: kebabCase }]
