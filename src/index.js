@@ -49,7 +49,7 @@ function getPackageJson(path) {
 }
 
 function getLicenseText(path) {
-  const name = LICENSE_FILES.find(fileName => isFile(`${path}/${fileName}`));
+  const name = LICENSE_FILES.find((fileName) => isFile(`${path}/${fileName}`));
 
   if (!name) {
     log('License file does not exist for', path);

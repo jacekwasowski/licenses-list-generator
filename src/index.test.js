@@ -1,4 +1,4 @@
-const licenses = require('./');
+const licenses = require('.');
 
 const projectPath = process.cwd();
 
