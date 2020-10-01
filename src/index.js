@@ -31,7 +31,7 @@ function getFile(path) {
 
 function getPackageJson(path) {
   const packagePath = `${path}/package.json`;
-  let packageObj = {};
+  let packageObj;
   try {
     packageObj = JSON.parse(getFile(packagePath));
   } catch (err) {
