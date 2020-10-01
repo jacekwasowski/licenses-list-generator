@@ -1,13 +1,23 @@
 {
   "name": "licenses-list-generator",
   "version": "0.7.2",
-  "description": "Fetch licences types and texts from all dependencies (and their dependencies) from project.",
+  "description": "Get license types and licence texts from all dependencies (and their dependencies) from your project",
+  "keywords": [
+    "license",
+    "licenses",
+    "legal",
+    "OSS"
+  ],
+  "homepage": "https://github.com/jacekwasowski/licenses-list-generator",
+  "license": "MIT",
+  "author": "Jacek Wasowski",
+  "files": [
+    "/src"
+  ],
   "main": "src/index.js",
-  "scripts": {
-    "licenses": "node build/licenses-generator",
-    "lint": "eslint src/*.js --fix",
-    "test": "npm run lint && npm run unit",
-    "unit": "jest --config jest.config.json"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacekwasowski/licenses-list-generator.git"
   },
   "dependencies": {
     "chalk": "^4.1.0"
@@ -16,20 +26,14 @@
     "eslint": "^7.10.0",
     "jest": "^26.4.2"
   },
+  "scripts": {
+    "licenses": "node build/licenses-generator",
+    "lint": "eslint src/*.js --fix",
+    "test": "npm run lint && npm run unit",
+    "unit": "jest --config jest.config.json"
+  },
   "engines": {
-    "node": ">=13.2.0",
-    "npm": ">=6.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jacekwasowski/licenses-list-generator.git"
-  },
-  "keywords": [
-    "license",
-    "licenses",
-    "legal",
-    "OSS"
-  ],
-  "author": "Jacek Wasowski",
-  "license": "MIT"
+    "node": ">=13.2",
+    "npm": ">=6"
+  }
 }
