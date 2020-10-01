@@ -12,7 +12,8 @@
   "license": "MIT",
   "author": "Jacek Wasowski",
   "files": [
-    "/src"
+    "/src",
+    "!/src/*.test.js"
   ],
   "main": "src/index.js",
   "repository": {
